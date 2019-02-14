@@ -285,7 +285,7 @@ Wire Wire Line
 	2300 2300 2300 3000
 Wire Wire Line
 	3000 1700 3000 2000
-Text Label 6450 4300 0    50   ~ 0
+Text Label 3700 4300 0    50   ~ 0
 GPIO4(GCLK)
 $Comp
 L Device:L_Small L?
@@ -303,31 +303,31 @@ L Device:C_Small C?
 U 1 1 5C658981
 P 7550 4450
 F 0 "C?" H 7642 4496 50  0000 L CNN
-F 1 "11p8" H 7642 4405 50  0000 L CNN
+F 1 "5p9" H 7642 4405 50  0000 L CNN
 F 2 "" H 7550 4450 50  0001 C CNN
 F 3 "~" H 7550 4450 50  0001 C CNN
 	1    7550 4450
 	1    0    0    -1  
 $EndComp
-Text Label 6450 4500 0    50   ~ 0
+Text Label 3700 4500 0    50   ~ 0
 GPIO6
-Text Label 6450 4400 0    50   ~ 0
+Text Label 3700 4400 0    50   ~ 0
 GPIO5
-Text Label 6450 4600 0    50   ~ 0
+Text Label 3700 4600 0    50   ~ 0
 GPIO20(SPI1_MOSI)
-Text Label 6450 4700 0    50   ~ 0
+Text Label 3700 4700 0    50   ~ 0
 GPIO21(SPI1_SCK)
-Text Notes 6400 5250 2    50   ~ 0
+Text Notes 3650 5250 2    50   ~ 0
 Extra GPCLK pins not available on header:\nGPIO32\nGPIO34\nGPIO42\nGPIO43\nGPIO44
-Text Notes 6400 4500 2    50   ~ 0
+Text Notes 3650 4500 2    50   ~ 0
 GPIO6 available via GPCLK_CNTL_2/GPCLK_DIV_2 in rpitx
-Text Notes 6400 4400 2    50   ~ 0
+Text Notes 3650 4400 2    50   ~ 0
 GPIO5 is used for Ethernet
-Text Notes 6400 4300 2    50   ~ 0
+Text Notes 3650 4300 2    50   ~ 0
 GPIO4 is default rpitx pin
-Text Notes 6400 4650 2    50   ~ 0
+Text Notes 3650 4650 2    50   ~ 0
 GPIO20/21 supposedly also available, somehow
-Text Notes 5550 3150 0    50   ~ 0
+Text Notes 5900 6300 0    50   ~ 0
 https://raspberrypi.stackexchange.com/questions/9298/what-is-the-maximum-current-the-gpio-pins-can-output\nWe can pull 16 mA per pin, 50 mA total -> 50-160 mW\nTwo pins in parallell across 103 Ohm -> 105 mW
 $Comp
 L Device:R_Small R?
@@ -338,50 +338,6 @@ F 1 "0" H 7300 4500 50  0000 C CNN
 F 2 "" H 7300 4500 50  0001 C CNN
 F 3 "~" H 7300 4500 50  0001 C CNN
 	1    7300 4500
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R_Small R?
-U 1 1 5C65A05E
-P 5550 5700
-F 0 "R?" V 5600 5700 50  0000 C CNN
-F 1 "0" H 5550 5700 50  0000 C CNN
-F 2 "" H 5550 5700 50  0001 C CNN
-F 3 "~" H 5550 5700 50  0001 C CNN
-	1    5550 5700
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R_Small R?
-U 1 1 5C65A086
-P 5550 5850
-F 0 "R?" V 5600 5850 50  0000 C CNN
-F 1 "0" H 5550 5850 50  0000 C CNN
-F 2 "" H 5550 5850 50  0001 C CNN
-F 3 "~" H 5550 5850 50  0001 C CNN
-	1    5550 5850
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R_Small R?
-U 1 1 5C65A0AC
-P 5550 6000
-F 0 "R?" V 5600 6000 50  0000 C CNN
-F 1 "0" H 5550 6000 50  0000 C CNN
-F 2 "" H 5550 6000 50  0001 C CNN
-F 3 "~" H 5550 6000 50  0001 C CNN
-	1    5550 6000
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R_Small R?
-U 1 1 5C65A0D8
-P 5550 6150
-F 0 "R?" V 5600 6150 50  0000 C CNN
-F 1 "0" H 5550 6150 50  0000 C CNN
-F 2 "" H 5550 6150 50  0001 C CNN
-F 3 "~" H 5550 6150 50  0001 C CNN
-	1    5550 6150
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -461,7 +417,7 @@ F 3 "~" H 9100 4450 50  0001 C CNN
 	1    9100 4450
 	-1   0    0    1   
 $EndComp
-Text Notes 7850 4950 0    50   ~ 0
+Text Notes 8050 5250 0    50   ~ 0
 Caps can be made from PCB copper\n2.68 pF per cm² for 1.55 FR-4
 Text Notes 8650 4050 2    50   ~ 0
 http://www.wa4dsy.net/cgi-bin/lc_filter3?FilterResponse=Lowpass&poles=5&cutoff=170&funits=MHZ&Z=103\nZ = 103 Ohm\nfc = 170 MHz\nChebyshev
@@ -543,15 +499,216 @@ Wire Wire Line
 Wire Wire Line
 	7550 4300 7550 4350
 Wire Wire Line
+	7200 4500 3700 4500
+$Comp
+L Device:L_Small L?
+U 1 1 5C6A382D
+P 7800 2350
+F 0 "L?" V 7985 2350 50  0000 C CNN
+F 1 "300n" V 7894 2350 50  0000 C CNN
+F 2 "" H 7800 2350 50  0001 C CNN
+F 3 "~" H 7800 2350 50  0001 C CNN
+	1    7800 2350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C6A3834
+P 7550 2500
+F 0 "C?" H 7642 2546 50  0000 L CNN
+F 1 "5p9" H 7642 2455 50  0000 L CNN
+F 2 "" H 7550 2500 50  0001 C CNN
+F 3 "~" H 7550 2500 50  0001 C CNN
+	1    7550 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C6A383B
+P 8050 2500
+F 0 "C?" H 8142 2546 50  0000 L CNN
+F 1 "10p2" H 8142 2455 50  0000 L CNN
+F 2 "" H 8050 2500 50  0001 C CNN
+F 3 "~" H 8050 2500 50  0001 C CNN
+	1    8050 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C6A3842
+P 8550 2500
+F 0 "C?" H 8642 2546 50  0000 L CNN
+F 1 "5p9" H 8642 2455 50  0000 L CNN
+F 2 "" H 8550 2500 50  0001 C CNN
+F 3 "~" H 8550 2500 50  0001 C CNN
+	1    8550 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:L_Small L?
+U 1 1 5C6A3849
+P 8300 2350
+F 0 "L?" V 8485 2350 50  0000 C CNN
+F 1 "300n" V 8394 2350 50  0000 C CNN
+F 2 "" H 8300 2350 50  0001 C CNN
+F 3 "~" H 8300 2350 50  0001 C CNN
+	1    8300 2350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:L_Small L?
+U 1 1 5C6A3850
+P 9050 1650
+F 0 "L?" V 9235 1650 50  0000 C CNN
+F 1 "135n" V 9144 1650 50  0000 C CNN
+F 2 "" H 9050 1650 50  0001 C CNN
+F 3 "~" H 9050 1650 50  0001 C CNN
+	1    9050 1650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C6A3857
+P 9300 1800
+F 0 "C?" H 9392 1846 50  0000 L CNN
+F 1 "8p95" H 9392 1755 50  0000 L CNN
+F 2 "" H 9300 1800 50  0001 C CNN
+F 3 "~" H 9300 1800 50  0001 C CNN
+	1    9300 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C6A385E
+P 8950 2350
+F 0 "C?" H 9042 2396 50  0000 L CNN
+F 1 "8p95" H 9042 2305 50  0000 L CNN
+F 2 "" H 8950 2350 50  0001 C CNN
+F 3 "~" H 8950 2350 50  0001 C CNN
+	1    8950 2350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:L_Small L?
+U 1 1 5C6A3865
+P 9100 2500
+F 0 "L?" V 9285 2500 50  0000 C CNN
+F 1 "135n" V 9194 2500 50  0000 C CNN
+F 2 "" H 9100 2500 50  0001 C CNN
+F 3 "~" H 9100 2500 50  0001 C CNN
+	1    9100 2500
+	-1   0    0    1   
+$EndComp
+Text Notes 8650 2100 2    50   ~ 0
+http://www.wa4dsy.net/cgi-bin/lc_filter3?FilterResponse=Lowpass&poles=5&cutoff=170&funits=MHZ&Z=206\nZ = 206 Ohm\nfc = 170 MHz\nChebyshev
+Text Notes 8150 1450 0    50   ~ 0
+http://analog.intgckts.com/impedance-matching/lumped-lc-balun/\n103 -> 73 Ohm\n145 MHz
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5C6A386F
+P 9750 1950
+F 0 "J?" V 9754 2030 50  0000 L CNN
+F 1 "ANT" V 9845 2030 50  0000 L CNN
+F 2 "" H 9750 1950 50  0001 C CNN
+F 3 "~" H 9750 1950 50  0001 C CNN
+	1    9750 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9750 1750 9750 1650
+Wire Wire Line
+	9750 1650 9300 1650
+Wire Wire Line
+	9750 2250 9750 2350
+Wire Wire Line
+	9750 2350 9100 2350
+Wire Wire Line
+	9100 2400 9100 2350
+Connection ~ 9100 2350
+Wire Wire Line
+	9100 2350 9050 2350
+Wire Wire Line
+	9300 1650 9300 1700
+Connection ~ 9300 1650
+Wire Wire Line
+	9300 1650 9150 1650
+Wire Wire Line
+	9300 1900 9300 2650
+Wire Wire Line
+	9300 2650 9100 2650
+Wire Wire Line
+	9100 2650 9100 2600
+Wire Wire Line
+	8950 1650 8800 1650
+Wire Wire Line
+	8800 1650 8800 2350
+Wire Wire Line
+	8800 2350 8850 2350
+Wire Wire Line
+	8800 2350 8550 2350
+Connection ~ 8800 2350
+Wire Wire Line
+	8550 2400 8550 2350
+Connection ~ 8550 2350
+Wire Wire Line
+	8550 2350 8400 2350
+Wire Wire Line
+	9100 2650 8550 2650
+Wire Wire Line
+	7550 2650 7550 2600
+Connection ~ 9100 2650
+Wire Wire Line
+	8050 2600 8050 2650
+Connection ~ 8050 2650
+Wire Wire Line
+	8050 2650 7550 2650
+Wire Wire Line
+	8550 2600 8550 2650
+Connection ~ 8550 2650
+Wire Wire Line
+	8550 2650 8050 2650
+Wire Wire Line
+	8200 2350 8050 2350
+Wire Wire Line
+	8050 2400 8050 2350
+Connection ~ 8050 2350
+Wire Wire Line
+	8050 2350 7900 2350
+Wire Wire Line
+	7700 2350 7550 2350
+Wire Wire Line
+	7550 2350 7550 2400
+Connection ~ 7550 2350
+$Comp
+L Device:R_Small R?
+U 1 1 5C6A6FED
+P 7300 4300
+F 0 "R?" V 7350 4300 50  0000 C CNN
+F 1 "0" H 7300 4300 50  0000 C CNN
+F 2 "" H 7300 4300 50  0001 C CNN
+F 3 "~" H 7300 4300 50  0001 C CNN
+	1    7300 4300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7550 4300 7450 4300
+Connection ~ 7550 4300
+Wire Wire Line
 	7400 4500 7450 4500
 Wire Wire Line
 	7450 4500 7450 4300
-Wire Wire Line
-	7450 4300 7550 4300
-Connection ~ 7550 4300
-Wire Wire Line
-	7450 4300 6450 4300
 Connection ~ 7450 4300
 Wire Wire Line
-	7200 4500 6450 4500
+	7450 4300 7400 4300
+Wire Wire Line
+	7200 4300 4350 4300
+Wire Wire Line
+	4350 4300 4350 2350
+Wire Wire Line
+	4350 2350 7550 2350
+Wire Wire Line
+	4350 4300 3700 4300
+Text Notes 7550 4750 0    50   ~ 0
+^ Parallel with cap in 206 Ohm path
+Connection ~ 4350 4300
 $EndSCHEMATC
