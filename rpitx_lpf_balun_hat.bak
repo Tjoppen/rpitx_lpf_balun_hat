@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:rpitx_lpf_balun_hat-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -208,7 +209,7 @@ Connection ~ 3000 1700
 Text Notes 650  7600 0    50   ~ 0
 ID_SD and ID_SC PINS:\nThese pins are reserved for HAT ID EEPROM.\n\nAt boot time this I2C interface will be\ninterrogated to look for an EEPROM\nthat identifes the attached board and\nallows automagic setup of the GPIOs\n(and optionally, Linux drivers).\n\nDO NOT USE these pins for anything other\nthan attaching an I2C ID EEPROM. Leave\nunconnected if ID EEPROM not required.
 $Comp
-L Mechanical:Mounting_Hole MK1
+L rpitx_lpf_balun_hat-rescue:Mounting_Hole-Mechanical MK1
 U 1 1 5834FB2E
 P 3000 7200
 F 0 "MK1" H 3100 7246 50  0000 L CNN
@@ -219,7 +220,7 @@ F 3 "" H 3000 7200 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:Mounting_Hole MK3
+L rpitx_lpf_balun_hat-rescue:Mounting_Hole-Mechanical MK3
 U 1 1 5834FBEF
 P 3450 7200
 F 0 "MK3" H 3550 7246 50  0000 L CNN
@@ -230,7 +231,7 @@ F 3 "" H 3450 7200 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:Mounting_Hole MK2
+L rpitx_lpf_balun_hat-rescue:Mounting_Hole-Mechanical MK2
 U 1 1 5834FC19
 P 3000 7400
 F 0 "MK2" H 3100 7446 50  0000 L CNN
@@ -241,7 +242,7 @@ F 3 "" H 3000 7400 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:Mounting_Hole MK4
+L rpitx_lpf_balun_hat-rescue:Mounting_Hole-Mechanical MK4
 U 1 1 5834FC4F
 P 3450 7400
 F 0 "MK4" H 3550 7446 50  0000 L CNN
@@ -284,4 +285,273 @@ Wire Wire Line
 	2300 2300 2300 3000
 Wire Wire Line
 	3000 1700 3000 2000
+Text Label 6450 4300 0    50   ~ 0
+GPIO4(GCLK)
+$Comp
+L Device:L_Small L?
+U 1 1 5C65886F
+P 7800 4300
+F 0 "L?" V 7985 4300 50  0000 C CNN
+F 1 "133n" V 7894 4300 50  0000 C CNN
+F 2 "" H 7800 4300 50  0001 C CNN
+F 3 "~" H 7800 4300 50  0001 C CNN
+	1    7800 4300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C658981
+P 7550 4450
+F 0 "C?" H 7642 4496 50  0000 L CNN
+F 1 "4p8" H 7642 4405 50  0000 L CNN
+F 2 "" H 7550 4450 50  0001 C CNN
+F 3 "~" H 7550 4450 50  0001 C CNN
+	1    7550 4450
+	1    0    0    -1  
+$EndComp
+Text Label 6450 4500 0    50   ~ 0
+GPIO6
+Text Label 6450 4400 0    50   ~ 0
+GPIO5
+Text Label 6450 4600 0    50   ~ 0
+GPIO20(SPI1_MOSI)
+Text Label 6450 4700 0    50   ~ 0
+GPIO21(SPI1_SCK)
+Text Notes 6400 5250 2    50   ~ 0
+Extra GPCLK pins not available on header:\nGPIO32\nGPIO34\nGPIO42\nGPIO43\nGPIO44
+Text Notes 6400 4500 2    50   ~ 0
+GPIO6 available via GPCLK_CNTL_2/GPCLK_DIV_2 in rpitx
+Text Notes 6400 4400 2    50   ~ 0
+GPIO5 is used for Ethernet
+Text Notes 6400 4300 2    50   ~ 0
+GPIO4 is default rpitx pin
+Text Notes 6400 4650 2    50   ~ 0
+GPIO20/21 supposedly also available, somehow
+Text Notes 5550 3150 0    50   ~ 0
+https://raspberrypi.stackexchange.com/questions/9298/what-is-the-maximum-current-the-gpio-pins-can-output\nWe can pull 16 mA per pin, 50 mA total -> 50-160 mW\nTwo pins in parallell across 103 Ohm -> 105 mW
+$Comp
+L Device:R_Small R?
+U 1 1 5C659EAA
+P 7300 4500
+F 0 "R?" V 7350 4500 50  0000 C CNN
+F 1 "0" H 7300 4500 50  0000 C CNN
+F 2 "" H 7300 4500 50  0001 C CNN
+F 3 "~" H 7300 4500 50  0001 C CNN
+	1    7300 4500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5C65A05E
+P 5550 5700
+F 0 "R?" V 5600 5700 50  0000 C CNN
+F 1 "0" H 5550 5700 50  0000 C CNN
+F 2 "" H 5550 5700 50  0001 C CNN
+F 3 "~" H 5550 5700 50  0001 C CNN
+	1    5550 5700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5C65A086
+P 5550 5850
+F 0 "R?" V 5600 5850 50  0000 C CNN
+F 1 "0" H 5550 5850 50  0000 C CNN
+F 2 "" H 5550 5850 50  0001 C CNN
+F 3 "~" H 5550 5850 50  0001 C CNN
+	1    5550 5850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5C65A0AC
+P 5550 6000
+F 0 "R?" V 5600 6000 50  0000 C CNN
+F 1 "0" H 5550 6000 50  0000 C CNN
+F 2 "" H 5550 6000 50  0001 C CNN
+F 3 "~" H 5550 6000 50  0001 C CNN
+	1    5550 6000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5C65A0D8
+P 5550 6150
+F 0 "R?" V 5600 6150 50  0000 C CNN
+F 1 "0" H 5550 6150 50  0000 C CNN
+F 2 "" H 5550 6150 50  0001 C CNN
+F 3 "~" H 5550 6150 50  0001 C CNN
+	1    5550 6150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C65CEAE
+P 8050 4450
+F 0 "C?" H 8142 4496 50  0000 L CNN
+F 1 "15p5" H 8142 4405 50  0000 L CNN
+F 2 "" H 8050 4450 50  0001 C CNN
+F 3 "~" H 8050 4450 50  0001 C CNN
+	1    8050 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C65CF36
+P 8550 4450
+F 0 "C?" H 8642 4496 50  0000 L CNN
+F 1 "4p8" H 8642 4405 50  0000 L CNN
+F 2 "" H 8550 4450 50  0001 C CNN
+F 3 "~" H 8550 4450 50  0001 C CNN
+	1    8550 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:L_Small L?
+U 1 1 5C65D040
+P 8300 4300
+F 0 "L?" V 8485 4300 50  0000 C CNN
+F 1 "133n" V 8394 4300 50  0000 C CNN
+F 2 "" H 8300 4300 50  0001 C CNN
+F 3 "~" H 8300 4300 50  0001 C CNN
+	1    8300 4300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:L_Small L?
+U 1 1 5C65D2A7
+P 9050 3600
+F 0 "L?" V 9235 3600 50  0000 C CNN
+F 1 "95n" V 9144 3600 50  0000 C CNN
+F 2 "" H 9050 3600 50  0001 C CNN
+F 3 "~" H 9050 3600 50  0001 C CNN
+	1    9050 3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C65D2F5
+P 9300 3750
+F 0 "C?" H 9392 3796 50  0000 L CNN
+F 1 "12p7" H 9392 3705 50  0000 L CNN
+F 2 "" H 9300 3750 50  0001 C CNN
+F 3 "~" H 9300 3750 50  0001 C CNN
+	1    9300 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5C65D382
+P 8950 4300
+F 0 "C?" H 9042 4346 50  0000 L CNN
+F 1 "12p7" H 9042 4255 50  0000 L CNN
+F 2 "" H 8950 4300 50  0001 C CNN
+F 3 "~" H 8950 4300 50  0001 C CNN
+	1    8950 4300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:L_Small L?
+U 1 1 5C65D3F6
+P 9100 4450
+F 0 "L?" V 9285 4450 50  0000 C CNN
+F 1 "95n" V 9194 4450 50  0000 C CNN
+F 2 "" H 9100 4450 50  0001 C CNN
+F 3 "~" H 9100 4450 50  0001 C CNN
+	1    9100 4450
+	-1   0    0    1   
+$EndComp
+Text Notes 7850 4950 0    50   ~ 0
+Caps can be made from PCB copper\n2.68 pF per cm² for 1.55 FR-4
+Text Notes 8650 4050 2    50   ~ 0
+http://www.wa4dsy.net/cgi-bin/lc_filter3?FilterResponse=Lowpass&poles=5&cutoff=170&funits=MHZ&Z=103\nZ = 103 Ohm\nfc = 170 MHz\nChebyshev
+Text Notes 8150 3400 0    50   ~ 0
+http://analog.intgckts.com/impedance-matching/lumped-lc-balun/\n103 -> 73 Ohm\n145 MHz
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5C65F894
+P 9750 3900
+F 0 "J?" V 9754 3980 50  0000 L CNN
+F 1 "ANT" V 9845 3980 50  0000 L CNN
+F 2 "" H 9750 3900 50  0001 C CNN
+F 3 "~" H 9750 3900 50  0001 C CNN
+	1    9750 3900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9750 3700 9750 3600
+Wire Wire Line
+	9750 3600 9300 3600
+Wire Wire Line
+	9750 4200 9750 4300
+Wire Wire Line
+	9750 4300 9100 4300
+Wire Wire Line
+	9100 4350 9100 4300
+Connection ~ 9100 4300
+Wire Wire Line
+	9100 4300 9050 4300
+Wire Wire Line
+	9300 3600 9300 3650
+Connection ~ 9300 3600
+Wire Wire Line
+	9300 3600 9150 3600
+Wire Wire Line
+	9300 3850 9300 4600
+Wire Wire Line
+	9300 4600 9100 4600
+Wire Wire Line
+	9100 4600 9100 4550
+Wire Wire Line
+	8950 3600 8800 3600
+Wire Wire Line
+	8800 3600 8800 4300
+Wire Wire Line
+	8800 4300 8850 4300
+Wire Wire Line
+	8800 4300 8550 4300
+Connection ~ 8800 4300
+Wire Wire Line
+	8550 4350 8550 4300
+Connection ~ 8550 4300
+Wire Wire Line
+	8550 4300 8400 4300
+Wire Wire Line
+	9100 4600 8550 4600
+Wire Wire Line
+	7550 4600 7550 4550
+Connection ~ 9100 4600
+Wire Wire Line
+	8050 4550 8050 4600
+Connection ~ 8050 4600
+Wire Wire Line
+	8050 4600 7550 4600
+Wire Wire Line
+	8550 4550 8550 4600
+Connection ~ 8550 4600
+Wire Wire Line
+	8550 4600 8050 4600
+Wire Wire Line
+	8200 4300 8050 4300
+Wire Wire Line
+	8050 4350 8050 4300
+Connection ~ 8050 4300
+Wire Wire Line
+	8050 4300 7900 4300
+Wire Wire Line
+	7700 4300 7550 4300
+Wire Wire Line
+	7550 4300 7550 4350
+Wire Wire Line
+	7400 4500 7450 4500
+Wire Wire Line
+	7450 4500 7450 4300
+Wire Wire Line
+	7450 4300 7550 4300
+Connection ~ 7550 4300
+Wire Wire Line
+	7450 4300 6450 4300
+Connection ~ 7450 4300
+Wire Wire Line
+	7200 4500 6450 4500
 $EndSCHEMATC
